@@ -3,76 +3,132 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ionic Lab Showcase</title>
+  <title>Ionic Lab App</title>
   <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
   <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" />
 </head>
 <body>
   <ion-app>
-    <ion-header>
-      <ion-toolbar color="primary">
-        <ion-title>Ionic Lab 2 Showcase</ion-title>
-      </ion-toolbar>
-    </ion-header>
+    <ion-tabs>
 
-    <ion-content class="ion-padding">
+      <!-- ACCORDION PAGE -->
+      <ion-tab tab="accordion">
+        <ion-header>
+          <ion-toolbar>
+            <ion-title>accordion</ion-title>
+          </ion-toolbar>
+        </ion-header>
 
-      <!-- SECTION 1: CARDS -->
-      <h2 style="margin-top:0;">1. Cards Showcase</h2>
-      <ion-card>
-        <ion-card-header>
-          <ion-card-subtitle>Basic Card</ion-card-subtitle>
-          <ion-card-title>Card Title</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-          This is a plain ion-card with header and content.
-        </ion-card-content>
-      </ion-card>
+        <ion-content class="ion-padding">
+          <ion-accordion-group>
+            <ion-accordion value="first">
+              <ion-item slot="header" color="light">
+                <ion-label>First Accordion</ion-label>
+              </ion-item>
+              <div class="ion-padding" slot="content">First Content</div>
+            </ion-accordion>
 
-      <ion-card>
-        <ion-img src="https://ionicframework.com/docs/img/demos/card-media.png"></ion-img>
-        <ion-card-header>
-          <ion-card-title>Card with Image</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-          ion-img sits above the header for a media-first layout.
-        </ion-card-content>
-      </ion-card>
+            <ion-accordion value="second">
+              <ion-item slot="header" color="light">
+                <ion-label>Second Accordion</ion-label>
+              </ion-item>
+              <div class="ion-padding" slot="content">Second Content</div>
+            </ion-accordion>
 
-      <!-- SECTION 2: SETTINGS -->
-      <h2>2. Settings Showcase</h2>
-      <ion-list>
-        <ion-list-header><ion-label>Preferences</ion-label></ion-list-header>
-        <ion-item>
-          <ion-icon name="moon-outline" slot="start"></ion-icon>
-          <ion-toggle>Dark Mode</ion-toggle>
-        </ion-item>
-        <ion-item>
-          <ion-icon name="notifications-outline" slot="start"></ion-icon>
-          <ion-toggle checked>Notifications</ion-toggle>
-        </ion-item>
-      </ion-list>
+            <ion-accordion value="third">
+              <ion-item slot="header" color="light">
+                <ion-label>Third Accordion</ion-label>
+              </ion-item>
+              <div class="ion-padding" slot="content">Third Content</div>
+            </ion-accordion>
+          </ion-accordion-group>
+        </ion-content>
+      </ion-tab>
 
-      <!-- SECTION 3: ACCORDION -->
-      <h2>3. Accordion Showcase</h2>
-      <ion-accordion-group>
-        <ion-accordion value="first">
-          <ion-item slot="header"><ion-label>First Accordion</ion-label></ion-item>
-          <div class="ion-padding" slot="content">First Content</div>
-        </ion-accordion>
-        <ion-accordion value="second">
-          <ion-item slot="header"><ion-label>Second Accordion</ion-label></ion-item>
-          <div class="ion-padding" slot="content">Second Content</div>
-        </ion-accordion>
-        <ion-accordion value="third">
-          <ion-item slot="header"><ion-label>Third Accordion</ion-label></ion-item>
-          <div class="ion-padding" slot="content">Third Content</div>
-        </ion-accordion>
-      </ion-accordion-group>
+      <!-- CARDS PAGE -->
+      <ion-tab tab="cards">
+        <ion-header>
+          <ion-toolbar>
+            <ion-title>cards</ion-title>
+          </ion-toolbar>
+        </ion-header>
 
-    </ion-content>
+        <ion-content class="ion-padding">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>Card Title</ion-card-title>
+              <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+            </ion-card-header>
+            <ion-card-content>
+              Here's a small text description for the card content. Nothing more, nothing less.
+            </ion-card-content>
+          </ion-card>
+
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>Card Title</ion-card-title>
+              <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+            </ion-card-header>
+            <ion-card-content>
+              Here's a small text description for the card content. Nothing more, nothing less.
+            </ion-card-content>
+            <ion-button fill="clear">Action 1</ion-button>
+            <ion-button fill="clear">Action 2</ion-button>
+          </ion-card>
+
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>Card Title</ion-card-title>
+              <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+            </ion-card-header>
+            <ion-card-content>
+              Here's a small text description for the card content. Nothing more, nothing less.
+            </ion-card-content>
+          </ion-card>
+        </ion-content>
+      </ion-tab>
+
+      <!-- SETTINGS PAGE -->
+      <ion-tab tab="settings">
+        <ion-header>
+          <ion-toolbar>
+            <ion-title>settings</ion-title>
+          </ion-toolbar>
+        </ion-header>
+
+        <ion-content class="ion-padding">
+          <ion-list>
+            <ion-item>
+              <ion-label>Enable Notifications</ion-label>
+              <ion-toggle slot="end" checked></ion-toggle>
+            </ion-item>
+            <ion-item>
+              <ion-label>Dark Mode</ion-label>
+              <ion-toggle slot="end"></ion-toggle>
+            </ion-item>
+          </ion-list>
+        </ion-content>
+      </ion-tab>
+
+      <!-- TAB BAR NAVIGATION -->
+      <ion-tab-bar slot="bottom">
+        <ion-tab-button tab="accordion">
+          <ion-icon name="list-outline"></ion-icon>
+          <ion-label>Accordion</ion-label>
+        </ion-tab-button>
+        <ion-tab-button tab="cards">
+          <ion-icon name="square-outline"></ion-icon>
+          <ion-label>Cards</ion-label>
+        </ion-tab-button>
+        <ion-tab-button tab="settings">
+          <ion-icon name="cog-outline"></ion-icon>
+          <ion-label>Settings</ion-label>
+        </ion-tab-button>
+      </ion-tab-bar>
+
+    </ion-tabs>
   </ion-app>
 </body>
-          </html>
-            
+                                                                      </html>
+  
