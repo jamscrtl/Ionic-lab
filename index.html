@@ -7,16 +7,21 @@
   <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
   <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" />
+  <style>
+    ion-tab:not(.tab-selected) {
+      display: none !important;
+    }
+  </style>
 </head>
 <body>
   <ion-app>
     <ion-tabs>
 
       <!-- ACCORDION PAGE -->
-      <ion-tab tab="accordion">
+      <ion-tab tab="accordion" class="tab-selected">
         <ion-header>
-          <ion-toolbar>
-            <ion-title>accordion</ion-title>
+          <ion-toolbar color="primary">
+            <ion-title>Accordion</ion-title>
           </ion-toolbar>
         </ion-header>
 
@@ -49,8 +54,8 @@
       <!-- CARDS PAGE -->
       <ion-tab tab="cards">
         <ion-header>
-          <ion-toolbar>
-            <ion-title>cards</ion-title>
+          <ion-toolbar color="primary">
+            <ion-title>Cards</ion-title>
           </ion-toolbar>
         </ion-header>
 
@@ -92,8 +97,8 @@
       <!-- SETTINGS PAGE -->
       <ion-tab tab="settings">
         <ion-header>
-          <ion-toolbar>
-            <ion-title>settings</ion-title>
+          <ion-toolbar color="primary">
+            <ion-title>Settings</ion-title>
           </ion-toolbar>
         </ion-header>
 
@@ -129,6 +134,24 @@
 
     </ion-tabs>
   </ion-app>
+
+  <script>
+    const tabButtons = document.querySelectorAll('ion-tab-button');
+    const tabs = document.querySelectorAll('ion-tab');
+
+    tabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const selectedTab = button.getAttribute('tab');
+        tabs.forEach(tab => {
+          if (tab.getAttribute('tab') === selectedTab) {
+            tab.classList.add('tab-selected');
+          } else {
+            tab.classList.remove('tab-selected');
+          }
+        });
+      });
+    });
+  </script>
 </body>
-                                                                      </html>
-  
+  </html>
+          
